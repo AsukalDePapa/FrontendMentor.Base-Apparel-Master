@@ -1,0 +1,50 @@
+@use '../utils/functions' as f;
+@use '../utils/breakpoints' as bp;
+
+footer {
+    margin-top: auto;
+}
+
+.attribution { 
+    font-size: f.rem(16); 
+    text-align: center; 
+    color: var(--darkgray-red);
+}
+.attribution { 
+    a {
+        position: relative;
+        font-weight: 600;
+        font-size: f.rem(18);
+        color: var(--pink); 
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin-inline: auto;
+            width: 0;
+            height: 2px;
+            background-color: var(--soft-red); 
+            transition: width .3s ease-in-out;
+        }
+
+        &:hover::after {
+            width: 100%;
+            animation: afterAnimation 2s infinite;
+            animation-delay: 1s;
+        }
+    }
+}
+
+
+
+@keyframes afterAnimation {
+    25% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

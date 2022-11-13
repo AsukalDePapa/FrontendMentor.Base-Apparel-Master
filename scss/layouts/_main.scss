@@ -1,0 +1,169 @@
+@use '../utils/breakpoints' as bp;
+@use '../utils/functions' as f;
+
+body {
+    display: flex;
+    flex-direction: column;
+
+    @include bp.breakpointMin(medium-screen) {
+        background-image: url(../images/bg-pattern-desktop.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    @include bp.breakpointMin(large-screen) {
+        background-image: url(../images/bg-pattern-desktop.svg), url(../images/hero-desktop.jpg);
+        background-repeat: no-repeat;
+        background-position: left, right;
+        background-size: 50%, 50%;
+    }
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: padding .5s ease;
+
+    @include bp.breakpointMin(medium-screen) {
+        justify-content: unset;
+        margin-top: f.rem(50);
+        padding-left: f.rem(100);
+    }
+}
+
+section {
+    width: min(100%, f.rem(450));
+    display: flex;
+    // background-color: red;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.hero-image {
+    width: 100%;
+
+    img {
+        width: 100%;
+    }
+
+    @include bp.breakpointMin(medium-screen) {
+        display: none;
+    }
+}
+
+article {
+    padding: f.rem(32);
+
+    h2,
+    p {
+        text-align: center;
+    }
+
+    h2 {
+        line-height: 1;
+        letter-spacing: f.rem(10);
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: f.rem(40);
+        color: var(--darkgray-red);
+
+        span {
+            color: var(--dsaturated-red);
+            font-weight: 300;
+        }
+
+        margin-bottom: f.rem(16);
+    }
+
+    p {
+        font-size: f.rem(14);
+        color: var(--dsaturated-red);
+        margin-bottom: f.rem(32);
+    }
+
+    #error-message {
+        padding: 5px 0 0 24px;
+        text-align: left;
+        color: var(--dsaturated-red);
+    }
+
+    @include bp.breakpointMin(medium-screen) {
+        h2,
+        p {
+            text-align: left;
+        }
+
+        h2 {
+            font-size: 64px;
+        }
+    }
+}
+
+input[type='submit'] {
+    display: none;
+}
+
+form {
+    position: relative;
+
+    #field__email {
+        position: relative;
+        width: 100%;
+        padding: f.rem(12) f.rem(24);
+        border-radius: f.rem(50);
+
+        &::placeholder {
+            color: var(--dsaturated-red);
+        }
+    }
+
+    label {
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        box-shadow: 0px 15px 40px 0px var(--dsaturated-red);
+        border-radius: f.rem(50);
+
+        img {
+            padding: f.rem(17) f.rem(32);
+            border-radius: f.rem(50);
+            background-image: var(--linear);
+            cursor: pointer;
+
+            &:hover {
+                scale: 1.1;
+                background-image: var(--linear-hover);
+            }
+        }
+    }
+}
+
+#form.invalid {
+    .emailBox::after {
+        content: '';
+        position: absolute;
+        top: f.rem(13);
+        right: f.rem(85);
+        width: f.rem(24);
+        height: f.rem(24);
+        // background-color: red;
+        z-index: 1000;
+        background-image: url(../images/icon-error.svg);
+        background-size: cover;
+    }
+}
+
+.emailBox {
+    margin-bottom: 12px;
+}
+
+.border {
+    border: var(--dsaturated-red) 1px solid;
+}
+
+.border-invalid {
+    border-color: var(--red);
+}

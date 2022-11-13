@@ -1,0 +1,12 @@
+@use '../utils/breakpoints' as bp;
+@use '../utils/functions' as f;
+
+header {
+    width: 100%;
+    padding: f.rem(32);
+    transition: padding .5s ease;
+
+    @include bp.breakpointMin(medium-screen) {
+        padding-left: f.rem(130);
+    }
+}
