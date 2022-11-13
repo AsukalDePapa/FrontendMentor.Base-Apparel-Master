@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/icon-arrow.svg">
+  
+  <title>Base Apparel</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./dist/style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <img src="./images/logo.svg" alt="logo" aria-hidden="true">
+  </header>
+  <!-- Main -->
+  <main>
+    <section>
+      <div class="hero-image">
+        <img src="./images/hero-mobile.jpg" alt="">
+      </div>
+      <article>
+        <h2>
+        <span>We're</span> coming soon
+        </h2>
+        <p id="ye">Hello fellow shoppers! We're currently building our new fashion store. Add your email below to stay up-to-date with announcements and our launch deals.</p>
+      
+        <form action="#" method="GET" id="form">
+          <div class="emailBox">
+            <input type="email" name="email" id="field__email" placeholder="Email Address" onkeydown="validateEmail()" class="border" required>
+          </div>
+          <input type="submit" name="submit" id="submit">
+          <label for="submit">
+            <img src="./images/icon-arrow.svg" alt="">
+          </label>
+        </form>
+        <span id="error-message"></span>
+      </article>
+    </section>
+  </main>
+  <!-- Footer -->
+  <footer>
+    <p class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="https://www.linkedin.com/in/jerickson-tomajin-659a2a254/">Jeck</a>.
+    </p>
+  </footer>
+  <!-- JavaScript -->
+  <script src="./js/main.js"></script>
+</body>
+</html>
